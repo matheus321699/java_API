@@ -18,6 +18,16 @@ import jakarta.persistence.Id;
 public class Users implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
+	
+	public Users() {
+		
+	}
+	
+	public Users(String login, String password, UserRole role) {
+		this.login = login;
+		this.password = password;
+		this.role = role;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,12 +41,6 @@ public class Users implements UserDetails{
 	
 	@Column(nullable = false)
 	private UserRole role;
-	
-	public Users(String login, String password, UserRole role) {
-		this.login = login;
-		this.password = password;
-		this.role = role;
-	}
 
 	public Integer getId() {
 		return id;
